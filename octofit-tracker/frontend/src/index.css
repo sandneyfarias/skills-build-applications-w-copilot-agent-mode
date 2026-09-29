@@ -1,0 +1,30 @@
+:root {
+  font-family: 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
+  color: #25312d;
+  background: #f4f6f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f4f6f1;
+  background-image: radial-gradient(#dfe6dc 0.65px, transparent 0.65px);
+  background-size: 15px 15px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  color: inherit;
+}
