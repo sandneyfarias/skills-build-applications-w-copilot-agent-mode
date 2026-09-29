@@ -1,6 +1,11 @@
 import CollectionStatus from './CollectionStatus.jsx'
 import useCollection from './useCollection.js'
 
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+const endpoint = codespaceName && /^[a-z0-9-]+$/i.test(codespaceName)
+  ? `https://${codespaceName}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/'
+
 function displayDate(value) {
   if (!value) return '—'
   const date = new Date(value)
@@ -12,7 +17,7 @@ function displayDate(value) {
 }
 
 export default function Activities() {
-  const { items, loading, error } = useCollection('activities')
+  const { items, loading, error } = useCollection(endpoint)
 
   return (
     <section>

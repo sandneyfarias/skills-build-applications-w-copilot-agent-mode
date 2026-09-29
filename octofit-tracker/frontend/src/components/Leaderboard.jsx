@@ -1,8 +1,13 @@
 import CollectionStatus from './CollectionStatus.jsx'
 import useCollection from './useCollection.js'
 
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+const endpoint = codespaceName && /^[a-z0-9-]+$/i.test(codespaceName)
+  ? `https://${codespaceName}-8000.app.github.dev/api/leaderboard/`
+  : 'http://localhost:8000/api/leaderboard/'
+
 export default function Leaderboard() {
-  const { items, loading, error } = useCollection('leaderboard')
+  const { items, loading, error } = useCollection(endpoint)
 
   return (
     <section>

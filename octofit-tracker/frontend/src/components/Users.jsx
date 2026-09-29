@@ -1,8 +1,13 @@
 import CollectionStatus from './CollectionStatus.jsx'
 import useCollection from './useCollection.js'
 
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+const endpoint = codespaceName && /^[a-z0-9-]+$/i.test(codespaceName)
+  ? `https://${codespaceName}-8000.app.github.dev/api/users/`
+  : 'http://localhost:8000/api/users/'
+
 export default function Users() {
-  const { items, loading, error } = useCollection('users')
+  const { items, loading, error } = useCollection(endpoint)
 
   return (
     <section>
